@@ -1,0 +1,268 @@
+/*
+        FINAL PROJECT
+
+    Author: Tristan Harden
+    File Name: style.css
+    Date: 4/1/21 
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Shadows+Into+Light&display=swap');
+
+
+
+/* CSS RESET START */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* CSS RESET END */
+html{
+    height: 100%;
+}
+main{
+    margin-bottom: 1em;
+}
+body{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif !important;
+    background-color: #ffcfb3;
+    background-image: linear-gradient(62deg, #ffcfb3 0%, #fbe19e 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+footer{
+    height: 2.5em;
+    margin-top: auto;
+    font-size: small;
+    text-align: center;
+}
+nav{
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+h1{
+    font-family: 'Shadows Into Light', sans-serif;
+    font-size: 3em !important;
+}
+h2{
+    font-family: 'Shadows Into Light', sans-serif;
+    font-size: 2.5rem !important;
+}
+p{
+    font-size: large;
+    font-weight: 500;
+}
+.nav-pills .pill .nav-link{
+    background-color: #ffcfb3;
+    background-image: linear-gradient(62deg, #ffcfb3 0%, #fbe19e 100%);
+    color: black !important;
+    font-weight: 700;
+}
+.page-frontground{
+    position: relative;
+    width: fit-content;
+    padding: 2.5rem;
+    border-radius: 1em;
+    background-color: rgba(255, 255, 255, 0.8);
+    -webkit-backdrop-filter: blur(6px);
+	backdrop-filter: blur(6px);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+}
+.page-background{
+    position: relative;
+    width: fit-content;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%,0);
+    left: 50%;
+    border-radius: 1em;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+}
+
+.important-info{
+    color: salmon;
+}
+
+.nav-item{
+    margin-right: 10%;
+}
+
+/* IMG SHOWCASE CSS OPEN */
+.img-desc{
+    position: relative;
+    width: 100%;
+    margin-bottom: 2.5%;
+}
+/*Used to center the last image in a showcase row if there is an odd number of images to showcase*/
+.img-desc-odd{
+    position: relative;
+    margin-bottom: 2.5%;
+    width: 50%;
+    left: 25%;
+}
+.showcase-img{
+    opacity: 1;
+    display: block;
+    padding: 5px;
+    width: 100%;
+    height: 576px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    -webkit-box-shadow: 3px 3px 6px #8e8e92, -3px -3px 6px rgb(255, 255, 255);
+    box-shadow: 3px 3px 6px #8e8e92, -3px -3px 6px rgb(255, 255, 255);
+  }
+.showcase-img-products {
+    opacity: 1;
+    display: block;
+    padding: 5px;
+    width: 100%;
+    height: 576px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    -webkit-box-shadow: 3px 3px 6px #8e8e92, -3px -3px 6px rgba(255, 255, 255, 0.5);
+    box-shadow: 3px 3px 6px #8e8e92, -3px -3px 6px rgba(255, 255, 255, 0.5);
+  }
+.img-desc-box {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    width: fit-content;
+    max-width: 75%;
+    bottom: 5%;
+    border-radius: 1rem;
+    background-color: rgb(255, 255, 255, .7);
+}
+    /* For light backgrounds */
+.img-desc-box-light {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    width: fit-content;
+    max-width: 75%;
+    bottom: 5%;
+    border-radius: 1rem;
+    background-color: rgba(32, 32, 32, 0.7);
+}
+.img-desc-info {
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    position: relative;
+    bottom: 0px;
+    margin: 0px;
+    padding: 1rem;
+    min-width: 100%;
+}
+.img-desc-info-light {
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    position: relative;
+    bottom: 0px;
+    margin: 0px;
+    padding: 1rem;
+    min-width: 100%;
+}
+.img-desc:hover .img-desc-box, .img-desc-odd:hover .img-desc-box, .img-desc:hover .img-desc-box-light, .img-desc-odd:hover .img-desc-box-light {
+    opacity: 1;
+    -webkit-backdrop-filter: blur(6px);
+	backdrop-filter: blur(6px);
+}
+.img-desc-title{
+    background-color: rgb(255, 255, 255);
+    border: 2px black solid;
+    border-top: 0;
+    border-radius: 2px;
+    color: rgb(0, 0, 0);
+    font-size: 32px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    margin: 0;
+    padding: 0px 5px 0px 5px;
+}
+/* IMG SHOWCASE CSS END */
+
+.img-desc-box a, .img-desc-box a:hover, .img-desc-box-light a,.img-desc-box-light a:hover{
+    color: rgb(162, 162, 255);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+ /*Media query for DESKTOP */
+@media only screen and (min-width: 992px) {
+    .product-links-mobile{
+        display: none;
+    }
+    .tours-mobile{
+        display: none;
+    }
+}
+
+
+ /*Media query for MOBILE */
+@media only screen and (max-width: 768px) {
+    footer{
+        left: auto;
+        font-size: 9px;
+        -webkit-transform: translate(0);
+        -ms-transform: translate(0);
+        transform: translate(0);
+    }
+    #calCulator{
+        height: 70px;
+    }
+    .product-links{
+        display: none;
+    }
+    .tours{
+        display: none;
+    }
+    .tours-mobile h2{
+        font-size: xx-large !important;
+    }
+    .tours-mobile p{
+        font-size: large !important;
+        margin-top: 2rem;
+    }
+    .img-desc-title{
+        position: relative;
+        margin: 0 !important;
+        border-top: 2px black solid;
+    }
+    .row{
+        margin-top: 0px;
+    }
+    .img-desc-box , .img-desc-box-light {
+        display: none;
+        
+    }
+}

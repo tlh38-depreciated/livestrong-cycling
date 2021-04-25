@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+  <!--
+        FINAL PROJECT
+
+    Author: Tristan Harden
+    File Name: exercise.html
+    Date: 4/1/21 
+-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise • Livestrong Cycling Tours</title>
+  <link rel="shortcut icon" type="image/jpg" href="images/ailmlogo.png" alt="Ailm symbol">
+  <link rel="stylesheet" href="style.css">
+  <script src="modernizr.custom.05819.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(20, 21, 29, 0.787);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/ailmlogo.png" width="40" height="40" class="d-inline-block align-top" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center navPillBackground" id="navbarNav">
+        <ul class="navbar-nav nav-pills pill text-center justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="america.html">America</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="europe.html">Europe</a>
+          </li>
+          <li class="nav-item pill">
+            <a class="nav-link active" aria-current="page" href="exercise.html">Exercise</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="links.html">Links</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register.html">Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="fullheight">
+      <div class="page-background">
+        <div class="page-frontground">
+          <div class="container">
+            <h2>Excercise Calculator <img src="images/calculator.png" alt="Calculator" title="Calculator" id="calCulator"></h2><br>
+            <p>Livestrong Cycling Tours is the leader in professional led tours
+              for amateur cyclists. Our fully supported tours traverse historic,
+              beautiful, and cycling friendly areas of the United States and Europe.
+              With over 15 years of experience, we are uniquely prepared to provide
+              an unforgettable cycling vacation.
+            </p><br>
+          </div>
+
+          <div class="container-fluid">
+            <div class="row justify-content-center">
+              <div class="col-md-4">
+                <form id="calorieCalculator">
+                  <div class="form-group">
+                    <label for="weight">Weight (in pounds)</label>
+                    <input type="number" class="form-control" id="weight" name="weight" placeholder="145" min="70"
+                      max="300">
+                    <small id="error" style="color: red;"></small>
+                  </div>
+                  <div class="form-group">
+                    <label for="lOfTime">Length of time cycling (in minutes)</label>
+                    <input type="number" class="form-control" id="lOfTime" name="lOfTime" placeholder="120" min="0"
+                      max="1000">
+                  </div>
+                  <select class="form-select" id="MET" name="MET" style="margin-top: 1rem; margin-bottom: 1rem;">
+                    <option selected>Choose a biking style...</option>
+                    <option value="4">Bicycling, < 10 mph, leisure</option>
+                    <option value="6.8">Bicycling, 10 - 11.9 mph</option>
+                    <option value="8">Bicycling, 12 - 13.9 mph</option>
+                    <option value="10">Bicycling, 14 - 15.9 mph</option>
+                    <option value="12">Bicycling, 16 or higher mph</option>
+                    <option value="8.5">Bicycling, mountain, general</option>
+                  </select>
+                  <button class="btn btn-primary" type="button" onclick="calculate()">Calculate</button>
+                  <p id="caloriesBurned" style="margin-top: 1em;"></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+    <footer id="footer-info">
+      © 2021 Livestrong Cycling Tours ~
+      <a href="mailto:tlh38@students.ptcollege.edu">tlh38@students.ptcollege.edu</a> ~
+      1221 S Mo PAC
+      Expy Ste 320
+      Austin, TX 78746
+    </footer>
+
+  <!--adds the date last modified to the footer-->
+  <script>
+    document.getElementById("footer-info").innerHTML += "~ last modified on: " + document.lastModified;
+  </script>
+
+  <!--calorie calculator for only this page-->
+  <script>
+    var weight = 0;
+    var lOfTime = 0;
+    var metValue = 0;
+
+    function calculate() {
+      weight = document.getElementById("weight").value;
+      lOfTime = document.getElementById("lOfTime").value;
+      metValue = document.getElementById("MET").value;
+
+      // equation requires the use of kg and the user is asked to input their weight in pounds
+      var kgWeight = weight * 0.45359237;
+      var caloriesBurned = 0;
+
+      caloriesBurned = ((metValue * kgWeight * 3.5) / 200) * lOfTime;
+
+      document.getElementById("caloriesBurned").innerHTML = "Total calories burned: " + caloriesBurned.toFixed(2);
+    }
+  </script>
+</body>
+
+</html>
